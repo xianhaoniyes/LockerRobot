@@ -3,3 +3,4 @@ Tasking for the locker:
 2 GIVEN 一个LOCKER, 且无可用容量; WHEN 存包; 存包失败,返回提示信息
 3 GIVEN 一个LOCKER, 一张有效票据; WHEN 取包; 取包成功, 返回对应包
 4 GIVEN 一个LOCKER, 一张无效票据; WHEN 取包; 取包失败, 返回提示信息
+5 GIVEN 一个 S LOCKER, 一张票据; WHEN 取包; 取包失败, 提示票型号错误
