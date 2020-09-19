@@ -1,12 +1,19 @@
 package cn.xpbootcamp.locker;
 
 public class Locker {
-    public Locker(int i) {
+
+    private int availableCapacity;
+
+    public Locker(int initCapacity) {
+        this.availableCapacity = initCapacity;
 
     }
 
     public Ticket save(Bag bag) {
-
-        return new Ticket();
+        if(this.availableCapacity > 0){
+            availableCapacity--;
+            return new Ticket();
+        }
+        throw new LockerIsFullException();
     }
 }
