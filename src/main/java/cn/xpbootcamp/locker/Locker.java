@@ -6,11 +6,13 @@ import java.util.Map;
 public class Locker {
 
     private int availableCapacity;
+    private int initCapacity;
     private StoreType type;
     private Map<Ticket, Bag> stores = new HashMap<>();
 
     public Locker(int initCapacity, StoreType type) {
         this.availableCapacity = initCapacity;
+        this.initCapacity = initCapacity;
         this.type = type;
 
     }
@@ -36,6 +38,7 @@ public class Locker {
             throw new InvalidTicketException();
         }
 
+        availableCapacity++;
         return bag;
     }
 
@@ -45,5 +48,9 @@ public class Locker {
 
     public int currentCapacity(){
         return availableCapacity;
+    }
+
+    public double vacancyRatio(){
+        return (double)this.availableCapacity/this.initCapacity;
     }
 }

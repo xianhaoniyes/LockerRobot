@@ -46,4 +46,20 @@ public class SuperLockerRobotTest {
         Assert.assertNotNull(ticket);
         Assert.assertSame(bag, firstLocker.pickupBy(ticket));
     }
+
+    @Test
+    public void should_save_in_2st_locker_and_return_ticket_when_save_bag_given_2st_has_larger_vacancy_ratio(){
+
+        Locker firstLocker = new Locker(2,StoreType.LARGE);
+        Locker secondLocker = new Locker(3,StoreType.LARGE);
+        firstLocker.save(new Bag());
+        secondLocker.save(new Bag());
+        SuperLockerRobot robot = new SuperLockerRobot(Arrays.asList(firstLocker,secondLocker));
+
+        Bag  bag = new Bag();
+        Ticket ticket = robot.save(bag);
+
+        Assert.assertNotNull(ticket);
+        Assert.assertSame(bag, secondLocker.pickupBy(ticket));
+    }
 }

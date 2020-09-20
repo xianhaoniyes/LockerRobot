@@ -16,6 +16,12 @@ public class SuperLockerRobot {
     }
 
     public Ticket save(Bag bag) {
-        return lockers.get(0).save(bag);
+        Locker lockerMax = lockers.get(0);
+        for (Locker locker: lockers) {
+            if (locker.vacancyRatio() > lockerMax.vacancyRatio()){
+                lockerMax = locker;
+            }
+        }
+        return lockerMax.save(bag);
     }
 }
