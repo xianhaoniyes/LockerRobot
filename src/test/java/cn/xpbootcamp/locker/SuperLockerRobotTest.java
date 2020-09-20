@@ -74,6 +74,20 @@ public class SuperLockerRobotTest {
         robot.save(new Bag());
     }
 
+    @Test
+    public void should_return_bag_given_valid_ticket(){
+
+        SuperLockerRobot robot = new SuperLockerRobot
+                (Arrays.asList(new Locker(2,StoreType.LARGE),new Locker(2,StoreType.LARGE)));
+        Bag bag = new Bag();
+        Ticket ticket = robot.save(bag);
+
+        Bag returnedBag = robot.pickupBy(ticket);
+
+        Assert.assertSame(bag,returnedBag);
+
+    }
+
 
 
 }

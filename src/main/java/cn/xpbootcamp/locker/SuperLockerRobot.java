@@ -24,4 +24,16 @@ public class SuperLockerRobot {
         }
         return lockerMax.save(bag);
     }
+
+    public Bag pickupBy(Ticket ticket) {
+
+        for(Locker locker:lockers){
+            try {
+                return  locker.pickupBy(ticket);
+            }
+            catch (Exception ignored){
+            }
+        }
+        throw new InvalidTicketException();
+    }
 }
