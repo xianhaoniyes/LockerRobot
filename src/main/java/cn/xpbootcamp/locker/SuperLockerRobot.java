@@ -27,6 +27,8 @@ public class SuperLockerRobot {
 
     public Bag pickupBy(Ticket ticket) {
 
+        if(ticket.getType()!=StoreType.LARGE)
+            throw new TicketTypeNotMatchException();
         for(Locker locker:lockers){
             try {
                 return  locker.pickupBy(ticket);

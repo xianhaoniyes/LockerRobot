@@ -99,6 +99,16 @@ public class SuperLockerRobotTest {
 
     }
 
+    @Test(expected =TicketTypeNotMatchException.class)
+    public void should_throw_TicketTypeNotMatchException_when_pick_up_bag_given_a_ticket_with_incorrect_type(){
+
+        SuperLockerRobot robot = new SuperLockerRobot
+                (Arrays.asList(new Locker(1,StoreType.LARGE),new Locker(1,StoreType.LARGE)));
+
+        robot.pickupBy(new Ticket(StoreType.SMALL));
+
+    }
+
 
 
 }
