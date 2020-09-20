@@ -88,6 +88,17 @@ public class SuperLockerRobotTest {
 
     }
 
+    @Test(expected = InvalidTicketException.class)
+    public void should_throw_InvalidTicketException_when_pickup_bag_given_invalid_ticket(){
+
+        SuperLockerRobot robot = new SuperLockerRobot
+                (Arrays.asList(new Locker(1,StoreType.LARGE),new Locker(1,StoreType.LARGE)));
+        Ticket ticket = new Ticket(StoreType.LARGE);
+
+        robot.pickupBy(ticket);
+
+    }
+
 
 
 }
