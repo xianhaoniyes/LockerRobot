@@ -19,4 +19,14 @@ public class SuperLockerRobotTest {
         Assert.assertTrue(robot instanceof  SuperLockerRobot);
 
     }
+
+    @Test(expected = IncorrectLockerType.class)
+    public void should_throw_IncorrectLockerType_when_configure_robot_given_two_s_lockers(){
+
+        Locker lockerA = new Locker(1,StoreType.SMALL);
+        Locker lockerB = new Locker(1, StoreType.SMALL);
+
+        new PrimaryLockerRobot(Arrays.asList(lockerA,lockerB));
+
+    }
 }
