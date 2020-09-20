@@ -22,4 +22,15 @@ public class PrimaryLockerRobot {
         }
         throw new LockerIsFullException();
     }
+
+    public Bag pickupBy(Ticket ticket) {
+        for(Locker locker:lockers){
+            try {
+                return  locker.pickupBy(ticket);
+            }
+            catch (Exception ignored){
+            }
+        }
+        throw new InvalidTicketException();
+    }
 }
