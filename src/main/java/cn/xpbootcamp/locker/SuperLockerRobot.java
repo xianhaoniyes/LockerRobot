@@ -2,20 +2,15 @@ package cn.xpbootcamp.locker;
 
 import java.util.List;
 
-public class SuperLockerRobot {
+public class SuperLockerRobot extends AbstractRobot {
 
-    private List<Locker> lockers;
 
     public SuperLockerRobot(List<Locker> list) {
-
-        for (Locker locker:list) {
-            if (locker.getType()!=StoreType.LARGE)
-                throw new IncorrectLockerType();
-        }
-        this.lockers = list;
+        super(list,StoreType.LARGE);
     }
 
     public Ticket save(Bag bag) {
+        List<Locker> lockers = super.getLockers();
         Locker lockerMax = lockers.get(0);
         for (Locker locker: lockers) {
             if (locker.vacancyRatio() > lockerMax.vacancyRatio()){
@@ -25,17 +20,4 @@ public class SuperLockerRobot {
         return lockerMax.save(bag);
     }
 
-    public Bag pickupBy(Ticket ticket) {
-
-        if(ticket.getType()!=StoreType.LARGE)
-            throw new TicketTypeNotMatchException();
-        for(Locker locker:lockers){
-            try {
-                return  locker.pickupBy(ticket);
-            }
-            catch (Exception ignored){
-            }
-        }
-        throw new InvalidTicketException();
-    }
 }
