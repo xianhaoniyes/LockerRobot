@@ -90,10 +90,20 @@ public class PrimaryLockerRobotTest {
 
         PrimaryLockerRobot robot = new PrimaryLockerRobot
                 (Arrays.asList(new Locker(1,StoreType.MEDIUM),new Locker(1,StoreType.MEDIUM)));
-
         Ticket ticket = new Ticket(StoreType.MEDIUM);
 
         robot.pickupBy(ticket);
+
+    }
+
+
+    @Test(expected =TicketTypeNotMatchException.class)
+    public void should_throw_TicketTypeNotMatchException_when_pick_up_bag_given_a_ticket_with_incorrect_type(){
+
+        PrimaryLockerRobot robot = new PrimaryLockerRobot
+                (Arrays.asList(new Locker(1,StoreType.MEDIUM),new Locker(1,StoreType.MEDIUM)));
+
+        robot.pickupBy(new Ticket(StoreType.SMALL));
 
     }
 

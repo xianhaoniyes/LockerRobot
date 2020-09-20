@@ -28,7 +28,7 @@ public class Locker {
     public Bag pickupBy(Ticket ticket) {
 
         if(this.type!=ticket.getType())
-            throw new TypeNotMatchException();
+            throw new TicketTypeNotMatchException();
 
         Bag bag =  stores.remove(ticket);
 

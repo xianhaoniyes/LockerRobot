@@ -42,10 +42,9 @@ public class LockerTest {
         locker.pickupBy(new Ticket(StoreType.SMALL));
     }
 
-    @Test(expected = TypeNotMatchException.class)
-    public void should_throw_TypeNotMatchException_when_pick_up_bag_given_a_ticket_with_incorrect_type(){
+    @Test(expected = TicketTypeNotMatchException.class)
+    public void should_throw_TicketTypeNotMatchException_when_pick_up_bag_given_a_ticket_with_incorrect_type(){
         Locker locker = new Locker(1,StoreType.SMALL);
-        locker.save(new Bag());
 
         locker.pickupBy(new Ticket(StoreType.MEDIUM));
 

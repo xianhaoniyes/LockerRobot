@@ -24,6 +24,9 @@ public class PrimaryLockerRobot {
     }
 
     public Bag pickupBy(Ticket ticket) {
+
+        if(ticket.getType()!=StoreType.MEDIUM)
+            throw new TicketTypeNotMatchException();
         for(Locker locker:lockers){
             try {
                 return  locker.pickupBy(ticket);
