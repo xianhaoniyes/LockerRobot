@@ -26,7 +26,22 @@ public class SuperLockerRobotTest {
         Locker lockerA = new Locker(1,StoreType.SMALL);
         Locker lockerB = new Locker(1, StoreType.SMALL);
 
-        new PrimaryLockerRobot(Arrays.asList(lockerA,lockerB));
+        new SuperLockerRobot(Arrays.asList(lockerA,lockerB));
 
+    }
+
+
+    @Test
+    public void should_save_in_1st_locker_and_return_ticket_when_save_bag_given_1st_has_larger_vacancy_ratio(){
+
+        Locker firstLocker = new Locker(1,StoreType.LARGE);
+        Locker secondLocker = new Locker(1,StoreType.LARGE);
+        SuperLockerRobot robot = new SuperLockerRobot(Arrays.asList(firstLocker,secondLocker));
+
+        Bag  bag = new Bag();
+        Ticket ticket = robot.save(bag);
+
+        Assert.assertNotNull(ticket);
+        Assert.assertSame(bag, firstLocker.pickupBy(ticket));
     }
 }

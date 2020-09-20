@@ -14,4 +14,8 @@ public class SuperLockerRobot {
         }
         this.lockers = list;
     }
+
+    public Ticket save(Bag bag) {
+        return lockers.get(0).save(bag);
+    }
 }
