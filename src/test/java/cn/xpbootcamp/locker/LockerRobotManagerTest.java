@@ -43,5 +43,20 @@ public class LockerRobotManagerTest {
 
     }
 
+    @Test(expected = LockerIsFullException.class)
+    public void should_throw_LockerIsFullException_when_save_bag_given_lockers_are_full(){
+        Locker locker = new Locker(1,StoreType.SMALL);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Collections.singletonList(new Locker(1, StoreType.MEDIUM)));
+        SuperLockerRobot superLockerRobot = new SuperLockerRobot(Collections.singletonList(new Locker(1,StoreType.LARGE)));
+        LockerRobotManager manager = new LockerRobotManager(Arrays.asList(locker,primaryLockerRobot,superLockerRobot));
+        manager.save(new Bag());
+        manager.save(new Bag());
+        manager.save(new Bag());
+
+        manager.save(new Bag());
+    }
+
+
+
 
 }

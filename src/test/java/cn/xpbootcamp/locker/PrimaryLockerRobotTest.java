@@ -60,7 +60,7 @@ public class PrimaryLockerRobotTest {
     }
 
     @Test(expected = LockerIsFullException.class)
-    public void should_throw_LockerIsFullException_when_locker_save_bag_given_lockers_are_full(){
+    public void should_throw_LockerIsFullException_when_save_bag_given_lockers_are_full(){
 
         Locker firstLocker = new Locker(1,StoreType.MEDIUM);
         Locker secondLocker = new Locker(1,StoreType.MEDIUM);
