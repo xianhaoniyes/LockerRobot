@@ -13,4 +13,8 @@ public class PrimaryLockerRobot {
         }
         this.lockers = list;
     }
+
+    public Ticket save(Bag bag) {
+        return lockers.get(0).save(bag);
+    }
 }

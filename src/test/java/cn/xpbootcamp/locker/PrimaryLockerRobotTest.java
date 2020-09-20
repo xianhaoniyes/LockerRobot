@@ -28,8 +28,20 @@ public class PrimaryLockerRobotTest {
 
         new PrimaryLockerRobot(Arrays.asList(lockerA,lockerB));
 
+    }
 
+    @Test
+    public void should_save_in_1st_locker_and_return_ticket_when_save_bag_given_1st_has_capacity(){
 
+        Locker firstLocker = new Locker(1,StoreType.MEDIUM);
+        Locker secondLocker = new Locker(1,StoreType.MEDIUM);
+        PrimaryLockerRobot robot = new PrimaryLockerRobot(Arrays.asList(firstLocker,secondLocker));
+
+        Bag  bag = new Bag();
+        Ticket ticket = robot.save(bag);
+
+        Assert.assertNotNull(ticket);
+        Assert.assertSame(bag, firstLocker.pickupBy(ticket));
     }
 
 }
