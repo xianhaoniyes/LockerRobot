@@ -2,7 +2,7 @@ package cn.xpbootcamp.locker;
 
 import java.util.List;
 
-public abstract class  AbstractRobot {
+public abstract class  AbstractRobot implements Storeable {
 
     private final List<Locker> lockers;
     private final StoreType storeType;

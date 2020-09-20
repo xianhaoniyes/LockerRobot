@@ -3,7 +3,7 @@ package cn.xpbootcamp.locker;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Locker {
+public class Locker implements Storeable {
 
     private int availableCapacity;
     private int initCapacity;
