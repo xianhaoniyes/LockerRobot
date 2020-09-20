@@ -13,7 +13,7 @@ public abstract class  AbstractRobot implements Storeable {
 
         for (Locker locker:list) {
             if (locker.getType()!= this.storeType)
-                throw new IncorrectLockerType();
+                throw new IncorrectLockerTypeException();
         }
         this.lockers = list;
     }
@@ -36,5 +36,9 @@ public abstract class  AbstractRobot implements Storeable {
 
     public List<Locker> getLockers() {
         return lockers;
+    }
+
+    public int currentCapacity(){
+        return this.lockers.stream().mapToInt(Locker::currentCapacity).sum();
     }
 }

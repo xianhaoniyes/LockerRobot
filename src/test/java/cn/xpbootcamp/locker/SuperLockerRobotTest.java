@@ -20,7 +20,7 @@ public class SuperLockerRobotTest {
 
     }
 
-    @Test(expected = IncorrectLockerType.class)
+    @Test(expected = IncorrectLockerTypeException.class)
     public void should_throw_IncorrectLockerType_when_configure_robot_given_two_s_lockers(){
 
         Locker lockerA = new Locker(1,StoreType.SMALL);

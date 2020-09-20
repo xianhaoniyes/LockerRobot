@@ -6,9 +6,9 @@ import java.util.Map;
 public class Locker implements Storeable {
 
     private int availableCapacity;
-    private int initCapacity;
-    private StoreType type;
-    private Map<Ticket, Bag> stores = new HashMap<>();
+    private final int initCapacity;
+    private final StoreType type;
+    private final Map<Ticket, Bag> stores = new HashMap<>();
 
     public Locker(int initCapacity, StoreType type) {
         this.availableCapacity = initCapacity;
