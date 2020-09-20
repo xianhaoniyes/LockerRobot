@@ -42,4 +42,8 @@ public class Locker {
     public StoreType getType(){
         return this.type;
     }
+
+    public int currentCapacity(){
+        return availableCapacity;
+    }
 }
