@@ -62,4 +62,18 @@ public class SuperLockerRobotTest {
         Assert.assertNotNull(ticket);
         Assert.assertSame(bag, secondLocker.pickupBy(ticket));
     }
+
+    @Test(expected = LockerIsFullException.class)
+    public void should_throw_LockerIsFullException_when_locker_save_bag_given_lockers_are_full(){
+        Locker firstLocker = new Locker(1,StoreType.LARGE);
+        Locker secondLocker = new Locker(1,StoreType.LARGE);
+        SuperLockerRobot robot = new SuperLockerRobot(Arrays.asList(firstLocker,secondLocker));
+        robot.save(new Bag());
+        robot.save(new Bag());
+
+        robot.save(new Bag());
+    }
+
+
+
 }

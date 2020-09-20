@@ -65,9 +65,9 @@ public class PrimaryLockerRobotTest {
         Locker firstLocker = new Locker(1,StoreType.MEDIUM);
         Locker secondLocker = new Locker(1,StoreType.MEDIUM);
         PrimaryLockerRobot robot = new PrimaryLockerRobot(Arrays.asList(firstLocker,secondLocker));
+        robot.save(new Bag());
+        robot.save(new Bag());
 
-        robot.save(new Bag());
-        robot.save(new Bag());
         robot.save(new Bag());
     }
 
