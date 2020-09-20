@@ -74,6 +74,20 @@ public class LockerRobotManagerTest {
     }
 
 
+    @Test(expected =InvalidTicketException.class)
+    public void should_throw_InvalidTicketException_when_pick_up_bag_given_an_invalid_ticket(){
+
+        Locker locker = new Locker(1,StoreType.SMALL);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Collections.singletonList(new Locker(1, StoreType.MEDIUM)));
+        SuperLockerRobot superLockerRobot = new SuperLockerRobot(Collections.singletonList(new Locker(1,StoreType.LARGE)));
+        LockerRobotManager manager = new LockerRobotManager(Arrays.asList(locker,primaryLockerRobot,superLockerRobot));
+
+        manager.pickupBy(new Ticket(StoreType.SMALL));
+
+    }
+
+
+
 
 
 }
