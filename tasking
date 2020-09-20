@@ -9,7 +9,17 @@ Tasking for the primary locker robot:
 1 GIVEN 2 个 M 号 LOCKER, WHEN 配置 PRIMARY LOCKER ROBOT, THEN 配置成功, 返回 1 个 PRIMARY LOCKER ROBOT
 2 GIVEN 2 个 S 号 LOCKER, WHEN 配置 PRIMARY LOCKER ROBOT, THEN 配置失败, 返回提示信息
 3 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 且 A 有可用容量, 1 个待存包; WHEN 存包; THEN 存包于 A,返回票据
-4 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 且 A 无可用容量,B 有可用容量, 1 个待存包; WHEN 存包; THEN 存包于 A,返回票据
+4 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 且 A 无可用容量,B 有可用容量, 1 个待存包; WHEN 存包; THEN 存包于 B,返回票据
+5 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 且 A,B 均无可用容量, 1 个待存包; WHEN 存包; THEN 存包失败,返回提示信息
+6 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 1 张有效小票; THEN 取包成功, 返回对应包
+7 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 1 张无效小票; THEN 取包失败, 返回提示信息
+8 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 1 张S型号票据; THEN 取包失败, 提示票型号错误
+
+Tasking for the super locker robot:
+1 GIVEN 2 个 L 号 LOCKER, WHEN 配置 SUPER LOCKER ROBOT, THEN 配置成功, 返回 1 个 SUPER LOCKER ROBOT
+2 GIVEN 2 个 S 号 LOCKER, WHEN 配置 SUPER LOCKER ROBOT, THEN 配置失败, 返回提示信息
+3 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 且 A 空置率大于 B, 1 个待存包; WHEN 存包; THEN 存包于 A,返回票据
+4 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 且 A 空置率小于 B, 1 个待存包; WHEN 存包; THEN 存包于 B,返回票据
 5 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 且 A,B 均无可用容量, 1 个待存包; WHEN 存包; THEN 存包失败,返回提示信息
 6 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 1 张有效小票; THEN 取包成功, 返回对应包
 7 GIVEN 1 个 PRIMARY LOCKER ROBOT 管理 2 个 LOCKER A,B, 1 张无效小票; THEN 取包失败, 返回提示信息
