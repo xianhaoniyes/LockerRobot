@@ -25,4 +25,18 @@ public class LockerRobotManager {
         throw new LockerIsFullException();
 
     }
+
+    public Bag pickupBy(Ticket ticket) {
+
+        for(Storeable storeable:storeables){
+            try {
+                return  storeable.pickupBy(ticket);
+            }
+            catch (Exception ignored){
+            }
+        }
+
+        throw new InvalidTicketException();
+
+    }
 }

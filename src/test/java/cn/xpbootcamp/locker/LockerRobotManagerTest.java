@@ -57,6 +57,23 @@ public class LockerRobotManagerTest {
     }
 
 
+    @Test
+    public void should_return_bag_given_valid_ticket(){
+
+        Locker locker = new Locker(1,StoreType.SMALL);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Collections.singletonList(new Locker(1, StoreType.MEDIUM)));
+        SuperLockerRobot superLockerRobot = new SuperLockerRobot(Collections.singletonList(new Locker(1,StoreType.LARGE)));
+        LockerRobotManager manager = new LockerRobotManager(Arrays.asList(locker,primaryLockerRobot,superLockerRobot));
+        Bag bag = new Bag();
+        Ticket ticket = manager.save(bag);
+
+        Bag returnedBag = manager.pickupBy(ticket);
+
+        Assert.assertSame(bag,returnedBag);
+
+    }
+
+
 
 
 }
