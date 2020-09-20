@@ -31,4 +31,4 @@ Tasking for the Locker robot manager:
 3 GIVEN 1 个 LOCKER ROBOT MANAGER, 且有剩余空间, 1 个待存包; WHEN 存包; THEN 存包成功,返回票据
 4 GIVEN 1 个 LOCKER ROBOT MANAGER, 且无剩余空间, 1 个待存包; WHEN 存包; THEN 取包失败, 返回提示信息
 5 GIVEN 1 个 LOCKER ROBOT MANAGER, 1 张有效小票; WHEN 取包; THEN 取包成功, 返回对应包
-5 GIVEN 1 个 LOCKER ROBOT MANAGER, 1 张有效小票; WHEN 取包; THEN 取包失败, 提示票型号错误
+6 GIVEN 1 个 LOCKER ROBOT MANAGER, 1 张有效小票; WHEN 取包; THEN 取包失败, 提示票型号错误

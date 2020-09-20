@@ -39,6 +39,8 @@ public class LockerRobotManagerTest {
 
         Ticket ticket = manager.save(new Bag());
 
+        Assert.assertNotNull(ticket);
+
     }
 
 
