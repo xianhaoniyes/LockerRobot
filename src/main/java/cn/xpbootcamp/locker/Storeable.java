@@ -2,9 +2,9 @@ package cn.xpbootcamp.locker;
 
 public interface Storeable {
 
-    public  Ticket save(Bag bag);
+    Ticket save(Bag bag);
 
-    public Bag pickupBy(Ticket ticket);
+    Bag pickupBy(Ticket ticket);
 
-    public int currentCapacity();
+    int currentCapacity();
 }
