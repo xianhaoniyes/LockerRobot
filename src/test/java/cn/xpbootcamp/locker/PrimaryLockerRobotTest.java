@@ -85,6 +85,20 @@ public class PrimaryLockerRobotTest {
 
     }
 
+    @Test(expected = InvalidTicketException.class)
+    public void should_throw_InvalidTicketException_when_pickup_bag_given_invalid_ticket(){
+
+        PrimaryLockerRobot robot = new PrimaryLockerRobot
+                (Arrays.asList(new Locker(1,StoreType.MEDIUM),new Locker(1,StoreType.MEDIUM)));
+
+        Ticket ticket = new Ticket(StoreType.MEDIUM);
+
+        robot.pickupBy(ticket);
+
+    }
+
+
+
 
 
 }
